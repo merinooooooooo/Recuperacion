@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Vista/InicioSesion.java</file>
-            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Modelo/Conexion.java</file>
-            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Controlador/ctrlLogin.java</file>
-            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Modelo/Usuarios.java</file>
-            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Vista/Login.java</file>
+            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Vista/Crud.java</file>
+            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Controlador/ctrlLibros.java</file>
+            <file>file:/C:/Users/Estudiante/Documents/NetBeansProjects/Recuperacion/src/Modelo/Libros.java</file>
         </group>
     </open-files>
 </project-private>

@@ -91,7 +91,7 @@ public class Libros {
         Connection conexion = ClaseConexion.getConexion();
         try {
             //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement addLibro = conexion.prepareStatement("INSERT INTO Libros(NombreLibro,Autor,AñoDePublicacion,Estado,ISBM,GeneroLiterario,CantidadPaginas,Editorial) VALUES( '?','?','?','?','?','?','?','?')");
+            PreparedStatement addLibro = conexion.prepareStatement("INSERT INTO Libros(NombreLibro,Autor,AñoDePublicacion,Estado,ISBM,GeneroLiterario,CantidadPaginas,Editorial) VALUES(?,?,?,?,?,?,?,?)");
             //Establecer valores de la consulta SQL
             addLibro.setString(1, getNombreLibro());
             addLibro.setString(2, getAutor());
@@ -153,9 +153,9 @@ public class Libros {
         
         //borramos 
         try {
-            PreparedStatement deleteEstudiante = conexion.prepareStatement("delete from Libros where NombreLibro = ?");
-            deleteEstudiante.setString(1, miId);
-            deleteEstudiante.executeUpdate();
+            PreparedStatement deleteLibro = conexion.prepareStatement("delete from Libros where NombreLibro = ?");
+            deleteLibro.setString(1, miId);
+            deleteLibro.executeUpdate();
         } catch (Exception e) {
             System.out.println("este es el error metodo de eliminar" + e);
         }
@@ -190,5 +190,45 @@ public class Libros {
         }
     }
     
+         public void Actualizar(JTable tabla) {
+             
+        Connection conexion = ClaseConexion.getConexion();
+        int filaSeleccionada = tabla.getSelectedRow();
+        if (filaSeleccionada != -1) 
+        {
+            String NombreLibro = tabla.getValueAt(filaSeleccionada, 0).toString();
+            try { 
+                
+                PreparedStatement updateUser = conexion.prepareStatement("update Libros set Autor = ?, AñoDePublicacion = ?, Estado = ?, ISBM = ?, GeneroLiterario = ?, CantidadPaginas = ?, Editorial = ? where NombreLibro = ?");
+                updateUser.setString(1, getAutor());
+                updateUser.setString(2, getAñoDePublicacion());
+                updateUser.setString(3, getEstado());
+                updateUser.setString(4, getISBM());
+                updateUser.setString(5, getGeneroLiterario());
+                updateUser.setInt(6, getCantidadPaginas());
+                updateUser.setString(7, getEditorial());
+                updateUser.setString(8, getNombreLibro());
+
+                updateUser.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.println("este es el error en el metodo de actualizar" + e);
+            }
+        } else {
+            System.out.println("no");
+        }
+    }
+         
+         public void limpiar(Crud Vista) {
+        Vista.txtNombreLibro.setText("");
+        Vista.txtAutor.setText("");
+        Vista.txtAñoDePublicacion.setText("");
+        Vista.txtEstado.setText("");
+        Vista.txtISBM.setText("");
+        Vista.txtGeneroLiterario.setText("");
+        Vista.txtCantidadPaginas.setText("");
+        Vista.txtEditorial.setText("");
+    }
+
     
 }
